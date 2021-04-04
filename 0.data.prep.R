@@ -14,5 +14,12 @@ library(dplyr)
 gta_setwd()
 
 
+countries = gtalibrary::country.names
 
-gtalibrary::gta_data_slicer()
+g20.plus.eu = countries %>% filter((is.g20 == TRUE) | (is.eu == TRUE)) %>% 
+  select(c("name", "un_code", "is.eu"))
+
+eu = filter(countries, is.eu == TRUE)
+
+
+gtalibrary::gta_data_slicer(implementing.country = c()
